@@ -73,7 +73,11 @@ h3
     font-style: italic;
     font-size: 14px;
 }
-   
+
+#imghidden
+{
+    display: none;
+}
 .showSlide1 img, .showSlide2 img, .showSlide3 img, .showSlide4 img
 {  
     width: 10%;  
