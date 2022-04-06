@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>JustStreamIt</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	
+	<body>
+		<header>
+			<nav class="topnav">
+	            <ul>
+	            	<a href="main.html"><img id="img-logo" src="logo.jpg"/></a>
+	                <li>    	
+	                	<a class="active"  href="main.html">Accueil</a>
+	                	<a style= "color: white" href="categories.html">Catégories</a>
+	                </li>
+	            </ul>
+	        </nav>
+        </header>
+
+		<section id='mvInfo'>
+			<h3>
+				Film le mieux noté
+			</h3>
+			<script	src="script.js"></script>
+		</section>
+
+		
+
+		<section id='mv'>
+			<h3>
+				Films les mieux notés
+			</h3>
+
+			<div class="slidercontainer">  
+        		<div class="showSlide1"></div>
+        		<a class="left" onclick="nextSlide(-1)">❮</a>  
+        		<a class="right" onclick="nextSlide(1)">❯</a>  
+    		</div>  
+    
+		</section>
+		
+
+
+		<section id='cat1'>
+			<h3>
+				Action
+			</h3>
+
+			<div class="slidercontainer">  
+        		<div class="showSlide2"></div>  
+        		<a class="left" onclick="nextSlide2(-1)">❮</a>  
+        		<a class="right" onclick="nextSlide2(1)">❯</a>  
+    		</div>  
+
+		</section>
+
+		<section id='cat2'>
+			<h3>
+				Fantasy
+			</h3>
+
+			<div class="slidercontainer">  
+        		<div class="showSlide3"></div>  
+        		<a class="left" onclick="nextSlide3(-1)">❮</a>  
+        		<a class="right" onclick="nextSlide3(1)">❯</a>  
+    		</div>  
+		</section>
+
+		<section id='cat3'>
+			<h3>
+				Horreur
+			</h3>
+
+			<div class="slidercontainer">  
+        		<div class="showSlide4"></div>  
+        		<a class="left" onclick="nextSlide4(-1)">❮</a>  
+        		<a class="right" onclick="nextSlide4(1)">❯</a>  
+    		</div>  
+    		
+		</section>
+		<script	src="slider.js"></script>
+
+	</body>
+</html>
