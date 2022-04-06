@@ -32,52 +32,39 @@ async function setImgs(nb_slide){
 }
 setImgs()
 
-function nextSlide(cursorSlide) { 
-    displaySlides(slide_index[0] += cursorSlide, 0);
+function nextSlide(direction) { 
+    displaySlides(slide_index[0] += direction, 0,direction);
 }  
-function nextSlide2(cursorSlide2) { 
-    displaySlides(slide_index[1] += cursorSlide2, 1);
+function nextSlide2(direction) { 
+    displaySlides(slide_index[1] += direction, 1,direction);
 }  
-function nextSlide3(cursorSlide3) { 
-    displaySlides(slide_index[2] += cursorSlide3, 2);
+function nextSlide3(direction) { 
+    displaySlides(slide_index[2] += direction, 2,direction);
 }  
-function nextSlide4(cursorSlide4) { 
-    displaySlides(slide_index[3] += cursorSlide4, 3);
+function nextSlide4(direction) { 
+    displaySlides(slide_index[3] += direction, 3,direction);
 }  
 
+function insertAfter(newNode, existingNode) {
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+}
 
-function displaySlides(cursorSlide, nb_slide) {  
-
-    console.log("-----");
-
-    let slides = document.getElementsByClassName(`showSlide${nb_slide+1}`);  
+function displaySlides(cursorSlide, nb_slide, direction) {
+    let slides = document.getElementsByClassName(`showSlide${nb_slide+1}`); 
     let all_img = slides[0].getElementsByTagName('img')
 
-    if (cursorSlide > all_img.length) { slide_index[nb_slide] = 0 }  
-    if (cursorSlide < 1) { slide_index[nb_slide] = all_img.length-1 }  
-    console.log({slide_index:slide_index[nb_slide]})
-
-
-    for (i = 0; i < all_img.length; i++) {  
-        all_img[i].style.display = "none";  
-    }  
-
-    for (i = 0; i < 5;i++){
-        console.log("-----");
-
-        if (slide_index[nb_slide]  + i > 24){
-
-
-            all_img[slide_index[nb_slide] + i - 25].style.display = "inline";  
-            console.log({all_img_index : slide_index[nb_slide]  + i -25});
-        }
-
-        else{
-            all_img[slide_index[nb_slide] +i].style.display = "inline";  
-            console.log({all_img_index : slide_index[nb_slide]  + i});
-        }
-        console.log("-----");
+    if(direction <0){
+        slides[0].insertBefore(all_img[all_img.length-1],all_img[0])
+    }else{
+        insertAfter(all_img[0],all_img[all_img.length-1])
     }
-    console.log("-----");
 
+    for (let i = 0; i < all_img.length; i++) { 
+        if(i>=0 && i<5){
+            all_img[i].style.display = "inline"; 
+        }else{
+            
+        all_img[i].style.display = "none";   
+        }
+    } 
 }
