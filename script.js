@@ -19,7 +19,6 @@ async function getBestMovie() {
   elementtitle.textContent = "(" + results[0].title + ")";
 
   elementmvInfo.append(elementimg, elementtitle);
-  console.log({results});
   }
 
 getBestMovie();

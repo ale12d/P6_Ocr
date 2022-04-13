@@ -74,10 +74,31 @@ h3
     font-size: 14px;
 }
 
-#imghidden
-{
-    display: none;
+#img-element{
+    
+    position: absolute;
+    height: 25em;
+    width: auto;
+    top: 0px; left: 0px;
+    
 }
+
+#title-element{
+
+}
+
+#year-element{
+    position: absolute;
+    color: white;
+    bottom: 0px; left: 0px;
+    font-size: 26px; 
+
+}
+
+#actors-element{
+    color: white;
+}
+
 .showSlide1 img, .showSlide2 img, .showSlide3 img, .showSlide4 img
 {  
     width: 10%;  
@@ -162,3 +183,47 @@ h3
         opacity: 1  
     }  
 } 
+
+.popup {
+    z-index:1;
+    background-color: gray;
+    position: fixed;
+    padding: 30px;
+    width: 50%;
+    height: 29%;
+    opacity: 1;
+    transition: all 0.3s ease;
+    margin: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 2%;
+    color: rgb(255, 255, 255);
+    font-size: 42px;
+    font-family : 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    z-index:1;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
