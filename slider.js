@@ -21,7 +21,6 @@ span.onclick = function() {
     document.querySelectorAll('.popup-content div').forEach(e => e.remove());
 
     popup_content = document.getElementsByClassName("popup-content")
-    console.log(popup_content)
 }
 
 async function setImgs(nb_slide){
@@ -43,10 +42,10 @@ async function setImgs(nb_slide){
             img_element.dataset.genres = results[n].genres;
             img_element.dataset.year = results[n].year;
             img_element.dataset.actors = results[n].actors;
-            img_element.dataset.directors = results[n].directors;
-            img_element.dataset.writers = results[n].writers;
+            img_element.dataset.directors = "Directors : " + results[n].directors;
+            img_element.dataset.writers = "Writers : " + results[n].writers;
             img_element.dataset.imdb_score = results[n].imdb_score;
-            img_element.dataset.votes = results[n].votes;
+            img_element.dataset.votes = results[n].votes + " votes";
 
 
 
