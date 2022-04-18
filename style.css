@@ -8,7 +8,7 @@ html, body
 
 body
 {
-    background-color: #505050;
+    background-color: #141313;
 }
 
 section
@@ -19,7 +19,10 @@ section
 h3
 {
   font-weight: 100;
-  text-align: center  
+  text-align: center;
+  position: static;
+  color: rgb(233, 233, 233);
+
 }
 
 .topnav
@@ -63,8 +66,14 @@ h3
 #img-best-movie
 {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  left: 0;
+  right: 0;
+  width:10%;
+  border: 2px solid;
+  border-color: white;
+  
+
 }
 
 #title-best-movie
@@ -77,35 +86,74 @@ h3
 #img-element{
     
     position: absolute;
-    height: 25em;
-    width: auto;
-    top: 0px; left: 0px;
-    
+    width: 20%;
+    bottom: 0px; left: -1px; top: -1px;
+    border: 3px solid;
+    border-color: white;
+
 }
 
 #title-element{
+    position: absolute;
+    color: white;
+    top: 2%;left: 23%;
+    font-size: 26px; 
+    
 
 }
 
 #year-element{
     position: absolute;
     color: white;
-    bottom: 0px; left: 0px;
-    font-size: 26px; 
-
+    top: 10%;left: 23%;
+    font-size: 20px; 
 }
 
 #actors-element{
+    position: absolute;
     color: white;
+    top: 18%;left: 23%;
+    font-size: 20px; 
+    color: #a8a8a8;
+}
+
+#genres-element{
+
+    position: absolute;
+    color: white;
+    top: 10%;left: 27%;
+    font-size: 20px; 
+    
+}
+
+#imdb_score-element{
+
+    position: absolute;
+    color: rgb(74, 255, 134);
+    bottom: 2%;left: 23%;
+    font-size: 26px; 
+    
+}
+
+#votes-element{
+
+    position: absolute;
+    color: rgb(211, 211, 211);
+    bottom: 2%;left: 27%;
+    font-size: 20px; 
+    font-style: italic;
+    
 }
 
 .showSlide1 img, .showSlide2 img, .showSlide3 img, .showSlide4 img
 {  
-    width: 10%;  
+    width:100%;
     display: inline-block;
     margin-left: 5px;
-        position: relative;
-        left: 23.5%;;
+    position: relative;
+    left: 23.5%;;
+    margin-bottom: 2.7%;
+    width:10%;
 }   
 
 
@@ -124,7 +172,7 @@ h3
     width: auto;  
     padding: 16px;  
     margin-top: -22px;  
-    color: white;  
+    color: rgb(212, 212, 212);  
     font-weight: bold;  
     font-size: 18px;  
     transition: 0.6s ease;  
@@ -134,24 +182,13 @@ h3
 .right 
 {  
     right: 0;  
-    border-radius: 3px 0 0 3px;  
+    border-radius: 3px 0 0 px;  
 }  
 
 .left:hover, .right:hover 
 {  
-    background-color: rgba(115, 115, 115, 0.8);  
+    background-color: rgba(41, 34, 34, 0.8);  
 } 
-
-.content
-{  
-    color: #eff5d4;  
-    font-size: 30px;  
-    padding: 8px 12px;  
-    position: absolute;  
-    top: 10px;  
-    width: 10%;  
-    text-align: center;  
-}  
 
 .active 
 {  
@@ -186,17 +223,19 @@ h3
 
 .popup {
     z-index:1;
-    background-color: gray;
+    background-color: rgb(65, 65, 65);
     position: fixed;
     padding: 30px;
     width: 50%;
-    height: 29%;
+    height: 26%;
     opacity: 1;
     transition: all 0.3s ease;
     margin: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 5px solid;
+    border-color: white;
 }
 
 .close {
@@ -226,4 +265,21 @@ h3
     align-items: center;
     justify-content: center;
     
+}
+
+#frame{
+    margin-top: 2%;
+    background-color:rgb(31, 31, 31);
+    width:100%;
+    border: 2px solid;
+    border-color: white;
+}
+
+#all-img{
+
+    
+}
+
+#mv{
+    width:100%;
 }

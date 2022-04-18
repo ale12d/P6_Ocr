@@ -37,6 +37,7 @@ async function setImgs(nb_slide){
 
             img_element = document.createElement("img");
             img_element.src = results[n].image_url;
+            img_element.id = "all-img"
             
             img_element.dataset.title = results[n].title;
             img_element.dataset.genres = results[n].genres;
@@ -75,11 +76,9 @@ async function setImgs(nb_slide){
             }
 
 
-
         }
 
-}
-
+    }
 }
 
 setImgs()
