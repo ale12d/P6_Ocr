@@ -13,7 +13,6 @@ let span = document.getElementsByClassName("close")[0];
 let popup_content = document.getElementsByClassName("popup-content")
 
 span.onclick = function() {
-    console.log("clicked");
     modal_container.style.visibility = "hidden";
     modal.style.visibility = "hidden";
 
@@ -40,7 +39,7 @@ async function setImgs(nb_slide){
             
             img_element.dataset.title = results[n].title;
             img_element.dataset.genres = results[n].genres;
-            img_element.dataset.year = results[n].year;
+            img_element.dataset.year = results[n].year + ", ";
             img_element.dataset.actors = results[n].actors;
             img_element.dataset.directors = "Directors : " + results[n].directors;
             img_element.dataset.writers = "Writers : " + results[n].writers;

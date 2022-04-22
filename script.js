@@ -5,10 +5,6 @@ async function getBestMovie() {
   const data = await response.json();
   const { results } = data;
 
-  //results.sort((a, b) => parseFloat(b.imdb_score) - parseFloat(a.imdb_score));
-  //document.getElementById('HNMovie').textContent = results[0].imdb_score;
-  //document.getElementById('img_url').textContent = results[0].image_url;
-
   let elementmvInfo = document.getElementById('mvInfo');
   let elementtitle = document.createElement('div');
   let elementimg = document.createElement('img');
