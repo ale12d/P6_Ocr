@@ -103,9 +103,7 @@ async function setImgs(nb_slide){
             if((n  in [0,1,2,3,4,5,6]) == false){
                 img_element.style.display = "none";
             }
-
         }
-
     }
 }
 
