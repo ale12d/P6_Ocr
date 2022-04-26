@@ -5,7 +5,8 @@ const api_horror_url = "http://localhost:8000/api/v1/titles/?genre=Horror&sort_b
 
 
 let dic_url = [api_films_url, api_action_url, api_fantasy_url, api_horror_url];
-let dic_attributes = ["title", "genres", "year", "actors", "directors", "writers", "imdb_score", "votes"]
+let dic_attributes = ["title", "genres", "actors", "directors", "imdb_score", "votes"]
+let dic_attributes2 = ["date_published", "duration", "description", "countries"]
 
 let modal_container = document.getElementById("modal-container")
 let modal = document.getElementById("modal")
@@ -20,6 +21,17 @@ span.onclick = function() {
     document.querySelectorAll('.popup-content div').forEach(e => e.remove());
 
     popup_content = document.getElementsByClassName("popup-content")
+}
+
+async function getRequestModal(pointer) 
+{
+    let response_modal = await fetch("http://localhost:8000/api/v1/titles/" + pointer.srcElement.dataset["id"]);
+    let data_modal =  await response_modal.json();
+
+    pointer.srcElement.dataset.date_published = data_modal.date_published
+    pointer.srcElement.dataset.duration = "Duration : " + data_modal.duration + " min"
+    pointer.srcElement.dataset.description = "Description : " + data_modal.description
+    pointer.srcElement.dataset.countries = "Countrie : " + data_modal.countries
 }
 
 async function setImgs(nb_slide){
@@ -37,12 +49,11 @@ async function setImgs(nb_slide){
             img_element.src = results[n].image_url;
             img_element.id = "all-img"
             
+            img_element.dataset.id = results[n].id;
             img_element.dataset.title = results[n].title;
             img_element.dataset.genres = results[n].genres;
-            img_element.dataset.year = results[n].year + ", ";
-            img_element.dataset.actors = results[n].actors;
+            img_element.dataset.actors = "Actors : " +results[n].actors;
             img_element.dataset.directors = "Directors : " + results[n].directors;
-            img_element.dataset.writers = "Writers : " + results[n].writers;
             img_element.dataset.imdb_score = results[n].imdb_score;
             img_element.dataset.votes = results[n].votes + " votes";
 
@@ -52,24 +63,44 @@ async function setImgs(nb_slide){
             slide[0].appendChild(img_element);
 
             img_element.addEventListener('click', (pointer) => {
+
+                getRequestModal(pointer).then(data_modal => {
+                    
+                    for (element=0; element<dic_attributes2.length; element++) {
+
+                    this[dic_attributes2[element] + "_element"] = document.createElement("div");
+                    this[dic_attributes2[element] + "_element"].textContent = pointer.srcElement.dataset[dic_attributes2[element]];
+                    console.log(pointer.srcElement.dataset[dic_attributes2[element]])
+                    this[dic_attributes2[element] + "_element"].id = dic_attributes2[element] + "-element"
+                    
+                    popup_content[0].appendChild(this[dic_attributes2[element] + "_element"])
+
+                    }
+                })
+
+
                 img = document.createElement("img");
                 img.src = pointer.srcElement.src
                 img.id = "img-element"
+
                 popup_content[0].appendChild(img)
+
 
                 for (element=0; element<dic_attributes.length; element++) {
                     this[dic_attributes[element] + "_element"] = document.createElement("div");
                     this[dic_attributes[element] + "_element"].textContent = pointer.srcElement.dataset[dic_attributes[element]];
                     this[dic_attributes[element] + "_element"].id = dic_attributes[element] + "-element"
-                    console.log(this[dic_attributes[element] + "_element"].id)
+                    
                     popup_content[0].appendChild(this[dic_attributes[element] + "_element"])
                 }
+
+                
 
                 modal_container.style.visibility = "visible";
                 modal.style.visibility = "visible";
             });
 
-            if((n  in [0,1,2,3,4]) == false){
+            if((n  in [0,1,2,3,4,5,6]) == false){
                 img_element.style.display = "none";
             }
 
@@ -109,7 +140,7 @@ function displaySlides(nb_slide, direction) {
     }
 
     for (let i = 0; i < all_img.length; i++) { 
-        if(i>=0 && i<5){
+        if(i>=0 && i<7){
             all_img[i].style.display = "inline"; 
         }
         else{
