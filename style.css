@@ -59,7 +59,7 @@ h3
     width:200px;
     height:130px;
     position: relative;
-    top: -0px; left: 5px;
+    top: 60px; left: -200px;
     opacity: 100%
 }
 
@@ -197,13 +197,6 @@ h3
 }   
 
 
-.slidercontainer, .slidercontainer2
-{  
-    max-width: 1000px;  
-    position: relative;  
-    margin: auto;  
-}  
-
 .left, .right 
 {  
     cursor: pointer;  
@@ -307,7 +300,10 @@ h3
     
 }
 
-#frame{
+.frame{
+    max-width: 1000px;  
+    position: relative;  
+    margin: auto;  
     margin-top: 2%;
     background-color:rgb(31, 31, 31);
     width:100%;
