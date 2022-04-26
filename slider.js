@@ -104,7 +104,6 @@ async function setImgs(nb_slide){
                 img_element.style.display = "none";
             }
 
-
         }
 
     }
